@@ -1754,11 +1754,11 @@ html.fsvs #fsvs-pagination li {
 }
 
 html.fsvs #fsvs-pagination li > span {
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    -ms-border-radius: 100%;
-    -o-border-radius: 100%;
-    border-radius: 100%;
+    /*-webkit-border-radius: 100%;*/
+    /*-moz-border-radius: 100%;*/
+    /*-ms-border-radius: 100%;*/
+    /*-o-border-radius: 100%;*/
+    /*border-radius: 100%;*/
     width: 35px;
     height: 35px;
     line-height: 35px;
@@ -2119,7 +2119,7 @@ body.active-nth-slide-4 #fsvs-pagination li.active > span > span {
 }
 
 .slide.nth-class-4 {
-    background: #2c3e50
+    /*background: #2c3e50*/
 }
 
 .slide.nth-class-4 .colour-wrapper, .slide.nth-class-4 .item {

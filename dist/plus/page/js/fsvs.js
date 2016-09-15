@@ -443,10 +443,11 @@
 			 */
 
 			addPagination : function() {
-				pagination = $('<ul id="fsvs-pagination"></ul>');
+				pagination = $('<nav class="nav nav--desta" id="fsvs-pagination"></nav>');
 				$( options.selector, body ).each( function(i) {
-					var linkClass = currentSlideIndex === i ? 'pagination-link active' : 'pagination-link';
-					$('<li class="' + linkClass + '"><span><span></span></span></li>').appendTo( pagination );
+					var _name = $(this).data('name');
+					var linkClass = currentSlideIndex === i ? 'nav__item nav__item--current active' : 'nav__item';
+					$('<button class="' + linkClass + '"><span><span><svg class="nav__icon"><use xlink:href="#icon-triangle"></use></svg></span></span><span class="nav__item-title">'+_name+'</span></button>').appendTo( pagination );
 				});
 				if( $('#fsvs-pagination').length !== 0 ) {
 					$('#fsvs-pagination').remove();
@@ -462,12 +463,12 @@
 				});
 				pagination.css({
 					marginTop : '-' + (paginationHeight/2) + 'px',
-					right : '25px'
+					right : '74px'
 				});
-				$('li', pagination).bind( 'click.fsvs', function(e){
+				$('button', pagination).bind( 'click.fsvs', function(e){
 					ignoreHashChange = true;
-					$('.active', pagination).removeClass( 'active' );
-					$(this).addClass( 'active' );
+					$('.active', pagination).removeClass( 'active nav__item--current' );
+					$(this).addClass( 'active nav__item--current' );
 					app.slideToIndex( $(this).index(), e );
 				});
 			},
@@ -543,8 +544,8 @@
 			slideToIndex : function( index, e ) {
 				var e = e || false;
 				if( ! e && pagination ) {
-					$('.active', pagination).removeClass( 'active' );
-					$('> *', pagination).eq(index).addClass( 'active' );
+					$('.active', pagination).removeClass( 'active nav__item--current' );
+					$('> *', pagination).eq(index).addClass( 'active nav__item--current' );
 				}
 				app.addClasses( currentSlideIndex, index );
 				if( hasTransition() ) {

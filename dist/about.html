@@ -9,17 +9,41 @@
         <link rel="stylesheet" href="plus/page/css/default.css">
         <link rel="stylesheet" href="plus/page/css/style.css">
         <link rel="stylesheet" href="plus/page/css/page01.css">
-        
+
+        <link rel="stylesheet" type="text/css" href="plus/page2/css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="plus/page2/css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="plus/page2/css/component.css" />
     </head>
     <body>
+    <svg class="hidden">
+        <defs>
+            <symbol id="icon-triangle" viewBox="0 0 24 24">
+                <title>triangle</title>
+                <path d="M4.5,19.8C4.5,19.8,4.5,19.8,4.5,19.8V4.2c0-0.3,0.2-0.5,0.4-0.7c0.2-0.1,0.5-0.1,0.8,0l13.5,7.8c0.2,0.1,0.4,0.4,0.4,0.7c0,0.3-0.2,0.5-0.4,0.7L5.7,20.4c-0.1,0.1-0.3,0.1-0.5,0.1C4.8,20.6,4.5,20.2,4.5,19.8z M6,5.6v12.8L17.2,12L6,5.6z"/>
+            </symbol>
+        </defs>
+    </svg>
     <div id="fsvs-body" >
-        <div class="slide page-01">
+        <div class="slide page-01" data-name="MY SELF">
             <img src="img/sub1/sub1_08.png" alt="" class="page-img">
         </div>
-        <div class="slide">
+        <div class="slide" data-name="DESIGN">
+            <img src="img/sub1/sub1-desizy_08.png" alt="" class="page-img">
+            <div style="position: absolute;top:204px;left: 324px;" class="des-click-btns">
+                <div class="img-click">1</div>
+                <div class="img-click">1</div>
+                <div class="img-click">1</div>
+            </div>
+            <div style="position: fixed;top: 10px;">
+                <img class="img-out" src="img/sub1/sub1-des-001.png" alt="" style="display: none">
+                <img class="img-out" src="img/sub1/sub1-des-002.png" alt="" style="display: none">
+                <img class="img-out" src="img/sub1/sub1-des-003.png" alt="" style="display: none">
+            </div>
+        </div>
+        <div class="slide" data-name="SKILL">
             <img src="img/sub1/sub－skill_08.png" alt="" class="page-img">
         </div>
-        <div class="slide">
+        <div class="slide" data-name="EXPERIENCE">
             <img src="img/sub1/sub1-job_08.png" alt="" class="page-img">
         </div>
     </div>

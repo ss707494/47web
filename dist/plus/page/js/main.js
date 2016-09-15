@@ -32,6 +32,14 @@ jQuery(document).ready( function($) {
 	});
 
 	$(window).load(function(){
+		$('.img-click').each(function (i, e) {
+			$(e).on('click',function () {
+				$('.img-out:eq('+i+')').fadeIn(1500);
+			})
+		});
+        $('.img-out').on('click', function () {
+			$(this).fadeOut(1500);
+		})
 
 	});
 

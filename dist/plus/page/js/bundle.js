@@ -443,10 +443,11 @@
 			 */
 
 			addPagination : function() {
-				pagination = $('<ul id="fsvs-pagination"></ul>');
+				pagination = $('<ul class="nav nav--desta" id="fsvs-pagination"></ul>');
 				$( options.selector, body ).each( function(i) {
-					var linkClass = currentSlideIndex === i ? 'pagination-link active' : 'pagination-link';
-					$('<li class="' + linkClass + '"><span><span></span></span></li>').appendTo( pagination );
+					var linkClass = currentSlideIndex === i ? 'nav__item nav__item--current' : 'nav__item';
+					$('<button class="'+linkClass+'" aria-label="Item 1"><span class="nav__item-title">Chapter 1</span></button>').appendTo( pagination );
+					// $('<li class="' + linkClass + '"><span><span></span></span></li>').appendTo( pagination );
 				});
 				if( $('#fsvs-pagination').length !== 0 ) {
 					$('#fsvs-pagination').remove();
