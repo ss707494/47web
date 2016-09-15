@@ -14,9 +14,15 @@
     cursor: pointer;
 }
 .img-click:nth-child(1){
-    margin-right: 206px;
+    margin-right: 216px;
 }
 .img-click:nth-child(2){
-    margin-right: 168px;
+    margin-right: 178px;
 
+}
+
+#page_02 {
+    background: url("../../../img/sub1/sub1-desizy_08.png");
+    background-size:contain;
+    background-position: 50px 20px;
 }
