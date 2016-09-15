@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html style="height: 100%;width: 100%" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Direction-Aware Hover Effect with CSS3 and jQuery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Direction-Aware Hover Effect with CSS3 and jQuery"/>
+    <meta name="keywords" content="hover, css3, jquery, effect, direction, aware, depending, thumbnails"/>
+    <meta name="author" content="Codrops"/>
+    <link rel="stylesheet" type="text/css" href="plus/portfolio-paper/css/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="plus/portfolio-paper/css/style.css"/>
+    <script src="plus/portfolio-paper/js/modernizr.custom.97074.js"></script>
+    <noscript>
+        <link rel="stylesheet" type="text/css" href="plus/portfolio-paper/css/noJS.css"/>
+    </noscript>
+</head>
+<body style="height: 100%;width: 100%">
+<div id="framer000" style="height: 100%">
+
+    <div class="container">
+        <!-- Codrops top bar -->
+        <section>
+            <ul id="da-thumbs" class="da-thumbs">
+                <li>
+                    <a id="poster" href="#">
+                        <img class="portfolio-img" src="img/portfolio/sub2-学科_09.png"/>
+                        <div><span>Post</span></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="illustration">
+                        <img class="portfolio-img" src="img/portfolio/sub2-学科_10.png"/>
+                        <div><span>Illustration</span></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="book">
+                        <img class="portfolio-img" src="img/portfolio/sub2-学科_11.png"/>
+                        <div><span>Book</span></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="design1">
+                        <img class="portfolio-img" src="img/portfolio/sub2-学科_13.png"/>
+                        <div><span>Design</span></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="design2">
+                        <img class="portfolio-img" src="img/portfolio/sub2-学科_14.png"/>
+                        <div><span>Design</span></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="renderings">
+                        <img class="portfolio-img" src="img/portfolio/sub2-学科_15.png"/>
+                        <div><span>Renderings</span></div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="plus/portfolio-paper/js/jquery.hoverdir.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var _g = {
+            iframe: function (data) {
+                return '\<iframe style="display: none" class="iframe-n" src="html/' + data + '.html"\> \<\/iframe\>';
+            }
+        };
+        $('#poster').on('click', function () {
+            var $framer = $('#framer000');
+            $framer.fadeOut(1000,function () {
+                $framer.html('').append(_g.iframe('poster'));
+                $framer.find('iframe').fadeIn(500, function () {
+                    $framer.fadeIn(1000);
+                });
+
+            });
+        });
+
+        $(' #da-thumbs > li ').each(function () {
+            $(this).hoverdir({
+                hoverDelay: 50,
+                inverse: true
+            });
+        });
+
+    });
+</script>
+</body>
+</html>

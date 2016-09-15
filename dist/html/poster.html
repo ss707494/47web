@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html style="height: 100%;width: 100%" lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackSlider: A Fun 3D Image Slider</title>
+    <meta name="description" content="StackSlider: A Fun 3D Image Slider"/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content="Codrops"/>
+    <link rel="stylesheet" type="text/css" href="../plus/project-paper/css/style.css"/>
+    <script src="../plus/project-paper/js/modernizr.custom.63321.js"></script>
+    <!--[if lte IE 7]>
+    <style>.support-note .note-ie {
+        display: block;
+    }</style><![endif]-->
+</head>
+<body  style="height: 100%;width: 100%" >
+<div class="container">
+    <section class="main">
+        <ul id="st-stack" class="st-stack-raw">
+            <!--<li>-->
+                <!--<div class="st-item"><img class="li-img" src="img/portfolio/poster/0.jpg"/></div>-->
+                <!--<div class="st-title"><h2></h2>-->
+                    <!--<h3></h3></div>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<div class="st-item"><img class="li-img" src="img/portfolio/poster/1.jpg"/></div>-->
+                <!--<div class="st-title"><h2></h2>-->
+                    <!--<h3></h3></div>-->
+            <!--</li>-->
+
+        </ul>
+    </section>
+
+</div><!-- /container -->
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../plus/project-paper/js/jquery.stackslider.js"></script>
+<script type="text/javascript" src="../plus/layer/layer.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        var _data = {
+            name: 'poster'
+            ,num: 3
+        };
+        var portfolioTmp = function (a) {
+            return '\<li\> \<div class="st-item"\>\<img id="'+_data.name+a.num+'" class="li-img" src="../img/portfolio/'+_data.name+'/'+a.num+'.jpg"\/\>\<\/div\> \<div class="st-title"\>\<h2\>\<\/h2\> \<h3\>\<\/h3\>\<\/div\> \<\/li\>';
+        };
+        for (var i = 0, n = _data.num;i< n;i++){
+            $('#st-stack').append(portfolioTmp({num:i}));
+        }
+
+        $('#st-stack').stackslider();
+        setTimeout(function () {
+            for (var i = 0, n = _data.num;i< n;i++){
+                (function (data) {
+                    $('#'+_data.name+i).on('click',function () {
+                        // 弹窗
+                        layer.open({
+                            type: 1,
+                            title: false,
+                            closeBtn: 2,
+                            shadeClose: true,
+                            maxWidth: '100%',
+                            scrollbar: false,
+                            shift:1,
+//                            shade: 0,
+//                            maxHeight: '100%',
+//                        area: ['auto','560px'],
+                        content: '\<img style="width:920px;height: 557px" src="../img/portfolio/poster/detail/'+data+'.jpg" alt=""\>'
+//                            content: $('#111').attr('src','../img/portfolio/poster/detail/'+data+'.jpg')
+                        });
+                    })
+                })(i);
+            }
+        },500);
+    });
+
+</script>
+</body>
+</html>
