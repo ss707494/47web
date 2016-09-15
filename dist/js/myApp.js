@@ -36,6 +36,7 @@
        function tagEvent(data) {
            var $mid = $('#mid');
            $mid.find('iframe:visible').fadeOut(1000,function () {
+
                $mid.find('#'+data+'-h').fadeIn(1500);
            });
        }

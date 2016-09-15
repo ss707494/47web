@@ -3,22 +3,22 @@
 }
 
 .page-img {
-    margin-top: -25px;
+    margin-top: -1px;
 }
 
 .img-click {
+    background: beige;
     display: inline-block;
     opacity: 0;
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     cursor: pointer;
 }
 .img-click:nth-child(1){
-    margin-right: 216px;
+    margin-right: 206px;
 }
 .img-click:nth-child(2){
-    margin-right: 178px;
-
+    margin-right: 168px;
 }
 
 #page_02 {

@@ -17,7 +17,7 @@
 </head>
 <body style="height: 100%;width: 100%">
 <div id="framer000" style="height: 100%">
-
+    <div id="close_btn" style="position: absolute;right: 1%;width: 5%;height: 9%;cursor: pointer;"></div>
     <div class="container">
         <!-- Codrops top bar -->
         <section>
@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" id="illustration">
+                    <a href="#" id="Illustration">
                         <img class="portfolio-img" src="img/portfolio/sub2-学科_10.png"/>
                         <div><span>Illustration</span></div>
                     </a>
@@ -71,14 +71,23 @@
                 return '\<iframe style="display: none" class="iframe-n" src="html/' + data + '.html"\> \<\/iframe\>';
             }
         };
-        $('#poster').on('click', function () {
+        $('#da-thumbs').on('click','a', function () {
+            var that = $(this);
             var $framer = $('#framer000');
-            $framer.fadeOut(1000,function () {
-                $framer.html('').append(_g.iframe('poster'));
+            $framer.fadeOut(500,function () {
+                $framer.find('div.container').fadeOut();
+                $framer.find('iframe').remove();
+                $framer.append(_g.iframe(that.attr('id')));
                 $framer.find('iframe').fadeIn(500, function () {
                     $framer.fadeIn(1000);
                 });
+            });
+        });
 
+        $('#close_btn').on('click', function () {
+            var $framer = $('#framer000');
+            $framer.find('iframe').fadeOut(500, function () {
+                $framer.find('div.container').fadeIn(500);
             });
         });
 
