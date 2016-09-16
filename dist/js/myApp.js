@@ -10,12 +10,6 @@
            }
        };
 
-        var pageWrap = document.getElementById( 'allC' ),
-            pages = [].slice.call( pageWrap.querySelectorAll( 'iframe.iframe-n' ) ),
-            currentPage = 0,
-            triggerLoading = [].slice.call( pageWrap.querySelectorAll( '.color-4 a' ) ),
-            loader = new SVGLoader( document.getElementById( 'loader' ), { speedIn : 300, easingIn : mina.easeinout } );
-
        function init() {
            bindEvent();
        }
@@ -61,7 +55,7 @@
     var pageWrap = document.getElementById( 'allC' ),
         pages = [].slice.call( pageWrap.querySelectorAll( 'iframe.iframe-n' ) ),
         currentPage = 0,
-        triggerLoading = [].slice.call( pageWrap.querySelectorAll( '.color-4 a' ) ),
+        triggerLoading = [].slice.call( pageWrap.querySelectorAll( '.color-4 a,#index-img' ) ),
         loader = new SVGLoader( document.getElementById( 'loader' ), { speedIn : 300, easingIn : mina.easeinout } );
 
     function init() {
