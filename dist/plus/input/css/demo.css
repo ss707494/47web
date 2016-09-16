@@ -212,10 +212,22 @@ body .nomargin-bottom {
 }
 
 .td-1 a {
+}
+.td-1 table {
+}
+
+.ab-send {
+	width: 100%;
+	position: absolute;
+	top: 75%;
+}
+.ab-send a {
+	z-index: 10;
+	position: relative;
+	right: -21%;
 	cursor: pointer;
 	color: pink;
 }
-.td-1 table {
-	position: absolute;
-	top: 80%;
+.ab-send div {
+	margin-top: 8px;
 }
