@@ -10,14 +10,20 @@
            }
        };
 
+        var pageWrap = document.getElementById( 'allC' ),
+            pages = [].slice.call( pageWrap.querySelectorAll( 'iframe.iframe-n' ) ),
+            currentPage = 0,
+            triggerLoading = [].slice.call( pageWrap.querySelectorAll( '.color-4 a' ) ),
+            loader = new SVGLoader( document.getElementById( 'loader' ), { speedIn : 300, easingIn : mina.easeinout } );
+
        function init() {
            bindEvent();
        }
 
        function bindEvent() {
-           $.map(['about','portfolio','blog','contact','index-img'],function (v) {
-               $('#'+v).on('click',function () { tagEvent(v); })
-           });
+           // $.map(['about','portfolio','blog','contact','index-img'],function (v) {
+           //     $('#'+v).on('click',function (ev) { tagEvent(v,ev); })
+           // });
            // $('#index-img').on('click', function () {
            //     var $mid = $('#mid');
            //     $mid.fadeOut(1000, function () {
@@ -33,11 +39,15 @@
            }
        }
 
-       function tagEvent(data) {
+       function tagEvent(data,ev) {
+           ev.preventDefault();
+           loader.show();
            var $mid = $('#mid');
-           $mid.find('iframe:visible').fadeOut(1000,function () {
+           $mid.find('iframe:visible').fadeOut(0,function () {
 
-               $mid.find('#'+data+'-h').fadeIn(1500);
+               $mid.find('#'+data+'-h').fadeIn(0, function(){
+                   loader.hide();
+               });
            });
        }
 
@@ -45,3 +55,45 @@
 
     });
 })();
+
+
+(function() {
+    var pageWrap = document.getElementById( 'allC' ),
+        pages = [].slice.call( pageWrap.querySelectorAll( 'iframe.iframe-n' ) ),
+        currentPage = 0,
+        triggerLoading = [].slice.call( pageWrap.querySelectorAll( '.color-4 a' ) ),
+        loader = new SVGLoader( document.getElementById( 'loader' ), { speedIn : 300, easingIn : mina.easeinout } );
+
+    function init() {
+        triggerLoading.forEach( function( trigger ) {
+            trigger.addEventListener( 'click', function( ev ) {
+                ev.preventDefault();
+                loader.show();
+                var _self = $(this);
+                var _id = _self.attr('id');
+
+                var $mid = $('#mid');
+                $mid.find('iframe:visible').fadeOut(1000,function () {
+
+                    $mid.find('#'+_id+'-h').fadeIn(10, function(){
+                        loader.hide();
+                    });
+                });
+                // debugger
+                // // after some time hide loader
+                // setTimeout( function() {
+                //     loader.hide();
+                //
+                //     classie.removeClass( pages[ currentPage ], 'show' );
+                //     // update..
+                //     currentPage = currentPage ? 0 : 1;
+                //     classie.addClass( pages[ currentPage ], 'show' );
+                //
+                // }, 2000 );
+            } );
+        } );
+    }
+
+    init();
+})();
+
